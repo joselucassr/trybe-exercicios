@@ -12,4 +12,4 @@ const maiorDeNNums = (numeros) => {
   return console.log(numeroAtual);
 };
 
-maiorDeNNums([4, 7, 10]);
+maiorDeNNums([4, 7, 4, 5]);
