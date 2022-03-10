@@ -27,3 +27,20 @@ const encontraIndiceDoMaior = (array) => {
 };
 
 encontraIndiceDoMaior([2, 3, 6, 7, 10, 1]);
+
+const encontraIndiceDoMenor = (array) => {
+  let indiceDoMenor = 0;
+  let menorNum = array[0];
+
+  for (let i = 1; i < array.length; i += 1) {
+    if (array[i] < menorNum) {
+      indiceDoMenor = i;
+      menorNum = array[i];
+    }
+  }
+
+  console.log(indiceDoMenor);
+  console.log('');
+};
+
+encontraIndiceDoMenor([2, 4, 6, 7, 10, 0, -3]);
