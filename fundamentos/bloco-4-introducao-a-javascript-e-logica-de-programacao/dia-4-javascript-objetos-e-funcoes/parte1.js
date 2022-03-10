@@ -87,3 +87,9 @@ const exercicio7 = ({ livrosFavoritos }) => {
 exercicio7(leitor);
 console.log(leitor);
 console.log('');
+
+const exercicio8 = ({ nome, livrosFavoritos }) => {
+  console.log(`${nome} tem ${livrosFavoritos.length} livros favoritos.`);
+};
+
+exercicio8(leitor);
