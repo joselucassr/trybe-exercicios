@@ -9,3 +9,10 @@ const exercicio1 = ({ personagem } = info) => {
 };
 
 exercicio1();
+
+const exercicio2 = (obj) => {
+  obj.recorrente = 'Sim';
+};
+
+exercicio2(info);
+console.log(info);
