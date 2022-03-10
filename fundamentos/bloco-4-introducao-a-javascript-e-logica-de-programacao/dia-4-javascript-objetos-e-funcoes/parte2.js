@@ -59,3 +59,28 @@ const encontraNomeMaisLongo = (array) => {
 };
 
 encontraNomeMaisLongo(['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana']);
+
+const numMaisRepetido = (array) => {
+  let numsEncontrados = {};
+  let info = {
+    maisRepetido: '',
+    maiorRep: 0,
+  };
+
+  for (let i = 0; i < array.length; i += 1) {
+    if (numsEncontrados[array[i]]) numsEncontrados[array[i]] += 1;
+    else numsEncontrados[array[i]] = 1;
+
+    if (numsEncontrados[array[i]] > info.maiorRep) {
+      info.maisRepetido = array[i];
+      info.maiorRep = numsEncontrados[array[i]];
+    } else if (numsEncontrados[array[i]] === info.maiorRep) {
+      info.maisRepetido = `${info.maisRepetido}, ${array[i]}`;
+    }
+  }
+
+  console.log(info.maisRepetido);
+  console.log('');
+};
+
+numMaisRepetido([2, 3, 2, 5, 8, 2, 3, 4, 4]);
