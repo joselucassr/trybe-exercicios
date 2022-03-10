@@ -10,3 +10,20 @@ const verificaPalindromo = (palavra) => {
 
 verificaPalindromo('arara');
 verificaPalindromo('desenvolvimento');
+
+const encontraIndiceDoMaior = (array) => {
+  let indiceDoMaior = 0;
+  let maiorNum = array[0];
+
+  for (let i = 1; i < array.length; i += 1) {
+    if (array[i] > maiorNum) {
+      indiceDoMaior = i;
+      maiorNum = array[i];
+    }
+  }
+
+  console.log(indiceDoMaior);
+  console.log('');
+};
+
+encontraIndiceDoMaior([2, 3, 6, 7, 10, 1]);
