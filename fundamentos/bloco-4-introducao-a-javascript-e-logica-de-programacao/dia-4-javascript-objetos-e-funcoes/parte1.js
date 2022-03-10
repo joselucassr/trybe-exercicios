@@ -16,3 +16,11 @@ const exercicio2 = (obj) => {
 
 exercicio2(info);
 console.log(info);
+
+const exercicio3 = (obj) => {
+  for (chave in obj) {
+    console.log(chave);
+  }
+};
+
+exercicio3(info);
