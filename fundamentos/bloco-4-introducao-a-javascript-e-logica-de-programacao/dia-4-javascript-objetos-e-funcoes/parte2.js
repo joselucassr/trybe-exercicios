@@ -97,3 +97,11 @@ const somatorioAteN = (n) => {
 };
 
 somatorioAteN(5);
+
+const verificaFimPalavra = (palavra, fimParaChecar) => {
+  let fimVerdadeiro = palavra.substring(palavra.length - fimParaChecar.length);
+
+  console.log(fimVerdadeiro === fimParaChecar);
+};
+
+verificaFimPalavra('tryber', 'ber');
