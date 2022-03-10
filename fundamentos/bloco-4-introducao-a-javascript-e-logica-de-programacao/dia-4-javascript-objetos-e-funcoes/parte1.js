@@ -4,12 +4,12 @@ let info = {
   nota: 'Namorada do personagem principal nos quadrinhos do Pato Donald',
 };
 
-const exercicio1 = ({ personagem } = info) => {
+const exercicio1 = ({ personagem }) => {
   console.log(`Bem vinda, ${personagem}`);
 
   console.log('');
 };
-exercicio1();
+exercicio1(info);
 
 const exercicio2 = (obj) => {
   obj.recorrente = 'Sim';
@@ -68,7 +68,7 @@ let leitor = {
   ],
 };
 
-const exercicio6 = ({ nome, sobrenome, livrosFavoritos } = leitor) => {
+const exercicio6 = ({ nome, sobrenome, livrosFavoritos }) => {
   console.log(
     `O livro favorito de ${nome} ${sobrenome} se chama '${livrosFavoritos[0].titulo}'.`,
   );
@@ -76,3 +76,14 @@ const exercicio6 = ({ nome, sobrenome, livrosFavoritos } = leitor) => {
   console.log('');
 };
 exercicio6(leitor);
+
+const exercicio7 = ({ livrosFavoritos }) => {
+  livrosFavoritos.push({
+    titulo: 'Harry Potter e o Prisioneiro de Azkaban',
+    autor: 'JK Rowling',
+    editora: 'Rocco',
+  });
+};
+exercicio7(leitor);
+console.log(leitor);
+console.log('');
