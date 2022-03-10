@@ -4,36 +4,36 @@ let info = {
   nota: 'Namorada do personagem principal nos quadrinhos do Pato Donald',
 };
 
-const exercicio1 = ({ personagem }) => {
+function exercicio1({ personagem }) {
   console.log(`Bem vinda, ${personagem}`);
 
   console.log('');
-};
+}
 exercicio1(info);
 
-const exercicio2 = (obj) => {
+function exercicio2(obj) {
   obj.recorrente = 'Sim';
-};
+}
 exercicio2(info);
 console.log(info);
 console.log('');
 
-const exercicio3 = (obj) => {
+function exercicio3(obj) {
   for (chave in obj) {
     console.log(chave);
   }
 
   console.log('');
-};
+}
 exercicio3(info);
 
-const exercicio4 = (obj) => {
+function exercicio4(obj) {
   for (chave in obj) {
     console.log(obj[chave]);
   }
 
   console.log('');
-};
+}
 exercicio4(info);
 
 let infoPatinhas = {
@@ -43,7 +43,7 @@ let infoPatinhas = {
   recorrente: 'Sim',
 };
 
-const exercicio5 = (obj1, obj2) => {
+function exercicio5(obj1, obj2) {
   for (chave in obj1) {
     console.log(
       obj1[chave] !== obj2[chave]
@@ -52,7 +52,7 @@ const exercicio5 = (obj1, obj2) => {
     );
   }
   console.log('');
-};
+}
 exercicio5(info, infoPatinhas);
 
 let leitor = {
@@ -68,28 +68,28 @@ let leitor = {
   ],
 };
 
-const exercicio6 = ({ nome, sobrenome, livrosFavoritos }) => {
+function exercicio6({ nome, sobrenome, livrosFavoritos }) {
   console.log(
     `O livro favorito de ${nome} ${sobrenome} se chama '${livrosFavoritos[0].titulo}'.`,
   );
 
   console.log('');
-};
+}
 exercicio6(leitor);
 
-const exercicio7 = ({ livrosFavoritos }) => {
+function exercicio7({ livrosFavoritos }) {
   livrosFavoritos.push({
     titulo: 'Harry Potter e o Prisioneiro de Azkaban',
     autor: 'JK Rowling',
     editora: 'Rocco',
   });
-};
+}
 exercicio7(leitor);
 console.log(leitor);
 console.log('');
 
-const exercicio8 = ({ nome, livrosFavoritos }) => {
+function exercicio8({ nome, livrosFavoritos }) {
   console.log(`${nome} tem ${livrosFavoritos.length} livros favoritos.`);
-};
+}
 
 exercicio8(leitor);

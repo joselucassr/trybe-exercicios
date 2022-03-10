@@ -1,4 +1,4 @@
-const verificaPalindromo = (palavra) => {
+function verificaPalindromo(palavra) {
   let naoE = false;
   for (let i = 0; i <= palavra.length / 2 - 1; i += 1) {
     palavra[i] !== palavra[palavra.length - i - 1] && (naoE = true);
@@ -6,12 +6,12 @@ const verificaPalindromo = (palavra) => {
 
   naoE ? console.log('Não é palíndromo.') : console.log('É palíndromo.');
   console.log('');
-};
+}
 
 verificaPalindromo('arara');
 verificaPalindromo('desenvolvimento');
 
-const encontraIndiceDoMaior = (array) => {
+function encontraIndiceDoMaior(array) {
   let indiceDoMaior = 0;
   let maiorNum = array[0];
 
@@ -24,11 +24,11 @@ const encontraIndiceDoMaior = (array) => {
 
   console.log(indiceDoMaior);
   console.log('');
-};
+}
 
 encontraIndiceDoMaior([2, 3, 6, 7, 10, 1]);
 
-const encontraIndiceDoMenor = (array) => {
+function encontraIndiceDoMenor(array) {
   let indiceDoMenor = 0;
   let menorNum = array[0];
 
@@ -41,11 +41,11 @@ const encontraIndiceDoMenor = (array) => {
 
   console.log(indiceDoMenor);
   console.log('');
-};
+}
 
 encontraIndiceDoMenor([2, 4, 6, 7, 10, 0, -3]);
 
-const encontraNomeMaisLongo = (array) => {
+function encontraNomeMaisLongo(array) {
   let nomeMaisLongo = array[0];
 
   for (let i = 1; i < array.length; i += 1) {
@@ -56,11 +56,11 @@ const encontraNomeMaisLongo = (array) => {
 
   console.log(nomeMaisLongo);
   console.log('');
-};
+}
 
 encontraNomeMaisLongo(['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana']);
 
-const numMaisRepetido = (array) => {
+function numMaisRepetido(array) {
   let numsEncontrados = {};
   let info = {
     maisRepetido: '',
@@ -81,11 +81,11 @@ const numMaisRepetido = (array) => {
 
   console.log(info.maisRepetido);
   console.log('');
-};
+}
 
 numMaisRepetido([2, 3, 2, 5, 8, 2, 3, 4, 4]);
 
-const somatorioAteN = (n) => {
+function somatorioAteN(n) {
   let soma = 0;
 
   for (let i = 1; i <= n; i += 1) {
@@ -94,14 +94,14 @@ const somatorioAteN = (n) => {
 
   console.log(soma);
   console.log('');
-};
+}
 
 somatorioAteN(5);
 
-const verificaFimPalavra = (palavra, fimParaChecar) => {
+function verificaFimPalavra(palavra, fimParaChecar) {
   let fimVerdadeiro = palavra.substring(palavra.length - fimParaChecar.length);
 
   console.log(fimVerdadeiro === fimParaChecar);
-};
+}
 
 verificaFimPalavra('tryber', 'ber');
