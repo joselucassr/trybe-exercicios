@@ -84,3 +84,16 @@ const numMaisRepetido = (array) => {
 };
 
 numMaisRepetido([2, 3, 2, 5, 8, 2, 3, 4, 4]);
+
+const somatorioAteN = (n) => {
+  let soma = 0;
+
+  for (let i = 1; i <= n; i += 1) {
+    soma += i;
+  }
+
+  console.log(soma);
+  console.log('');
+};
+
+somatorioAteN(5);
