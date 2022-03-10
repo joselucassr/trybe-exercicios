@@ -54,3 +54,25 @@ const exercicio5 = (obj1, obj2) => {
   console.log('');
 };
 exercicio5(info, infoPatinhas);
+
+let leitor = {
+  nome: 'Julia',
+  sobrenome: 'Pessoa',
+  idade: 21,
+  livrosFavoritos: [
+    {
+      titulo: 'O Pior Dia de Todos',
+      autor: 'Daniela Kopsch',
+      editora: 'Tordesilhas',
+    },
+  ],
+};
+
+const exercicio6 = ({ nome, sobrenome, livrosFavoritos } = leitor) => {
+  console.log(
+    `O livro favorito de ${nome} ${sobrenome} se chama '${livrosFavoritos[0].titulo}'.`,
+  );
+
+  console.log('');
+};
+exercicio6(leitor);
