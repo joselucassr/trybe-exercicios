@@ -44,3 +44,18 @@ const encontraIndiceDoMenor = (array) => {
 };
 
 encontraIndiceDoMenor([2, 4, 6, 7, 10, 0, -3]);
+
+const encontraNomeMaisLongo = (array) => {
+  let nomeMaisLongo = array[0];
+
+  for (let i = 1; i < array.length; i += 1) {
+    if (array[i].length > nomeMaisLongo.length) {
+      nomeMaisLongo = array[i];
+    }
+  }
+
+  console.log(nomeMaisLongo);
+  console.log('');
+};
+
+encontraNomeMaisLongo(['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana']);
