@@ -91,10 +91,34 @@
       mainElement.appendChild(section3Element);
 
       // Exercício 7
-      let img1Element = document.createElement('img');
-      img1Element.classList = 'small-image';
-      img1Element.src = 'https://picsum.photos/200';
-      section2Element.appendChild(img1Element);
+      let imgElement = document.createElement('img');
+      imgElement.classList = 'small-image';
+      imgElement.src = 'https://picsum.photos/200';
+      section2Element.appendChild(imgElement);
+
+      // Exercício 8
+      let ulElement = document.createElement('ul');
+      section3Element.appendChild(ulElement);
+
+      let numsExtenso = [
+        'um',
+        'dois',
+        'três',
+        'quatro',
+        'cinco',
+        'seis',
+        'sete',
+        'oito',
+        'nove',
+        'dez',
+      ];
+
+      for (num of numsExtenso) {
+        let liElement = document.createElement('li');
+        liElement.innerText = num;
+
+        ulElement.appendChild(liElement);
+      }
     </script>
   </body>
 </html>
