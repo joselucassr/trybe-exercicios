@@ -127,14 +127,22 @@
         'Vestibulum vitae metus consectetur, varius arcu quis, tempus sem.',
       ];
 
+      let createdH3s = [];
+
       for (let desc of descs) {
         let h3Element = document.createElement('h3');
         h3Element.innerText = desc;
         mainElement.appendChild(h3Element);
+        createdH3s.push(h3Element);
       }
 
       // Exercício 10
       h1Element.classList.add('title');
+
+      // Exercício 11
+      for (h3Element of createdH3s) {
+        h3Element.classList.add('description');
+      }
     </script>
   </body>
 </html>
