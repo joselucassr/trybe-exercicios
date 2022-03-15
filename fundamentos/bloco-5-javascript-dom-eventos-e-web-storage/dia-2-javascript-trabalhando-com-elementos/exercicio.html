@@ -113,11 +113,24 @@
         'dez',
       ];
 
-      for (num of numsExtenso) {
+      for (let num of numsExtenso) {
         let liElement = document.createElement('li');
         liElement.innerText = num;
 
         ulElement.appendChild(liElement);
+      }
+
+      // Exercício 9
+      let descs = [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Pellentesque porta leo quis ex vulputate fermentum.',
+        'Vestibulum vitae metus consectetur, varius arcu quis, tempus sem.',
+      ];
+
+      for (let desc of descs) {
+        let h3Element = document.createElement('h3');
+        h3Element.innerText = desc;
+        mainElement.appendChild(h3Element);
       }
     </script>
   </body>
