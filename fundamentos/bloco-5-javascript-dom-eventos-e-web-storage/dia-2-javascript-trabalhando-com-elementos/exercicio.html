@@ -62,14 +62,17 @@
       // Exercício 1
       let h1Element = document.createElement('h1');
       h1Element.innerText = 'Exercício 5.2 - JavaScript DOM';
-
       body.appendChild(h1Element);
 
       // Exercício 2
       let mainElement = document.createElement('main');
       mainElement.classList = 'main-content';
+      body.appendChild(mainElement);
 
       // Exercício 3
+      let section1Element = document.createElement('section');
+      section1Element.classList = 'center-content';
+      mainElement.appendChild(section1Element);
     </script>
   </body>
 </html>
