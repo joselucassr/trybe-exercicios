@@ -63,3 +63,13 @@ function drawDays() {
 }
 
 drawDays();
+
+function addBtn(name, id) {
+  let btn = document.createElement('button');
+  btn.innerText = name;
+  btn.id = id;
+
+  document.querySelector('.buttons-container').appendChild(btn);
+}
+
+addBtn('Feriados', 'btn-holiday');
