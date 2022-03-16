@@ -27,6 +27,8 @@ class Day {
   constructor(dayNum) {
     this.dayNum = dayNum;
     this.liElement = this.buildElement();
+    this.classes = [];
+    this.isHighlighted = false;
   }
 
   buildElement() {
@@ -38,8 +40,26 @@ class Day {
 
   addClass(className) {
     this.liElement.classList.add(className);
+    this.classes.push(className);
+  }
+
+  highlightSelf() {
+    if (!this.isHighlighted) {
+      this.liElement.style = 'background-color: #8effef;';
+      this.isHighlighted = true;
+    } else {
+      this.liElement.style = '';
+      this.isHighlighted = false;
+    }
+  }
+
+  resetHighlight() {
+    this.liElement.style = '';
+    this.isHighlighted = false;
   }
 }
+
+let days = [];
 
 function drawDays() {
   const dezDaysList = [
@@ -59,17 +79,36 @@ function drawDays() {
     if (friday.includes(dayNum)) day.addClass('friday');
 
     daysTag.appendChild(day.liElement);
+    days.push(day);
   }
 }
 
 drawDays();
 
-function addBtn(name, id) {
+function addBtn(name, id, func) {
   let btn = document.createElement('button');
   btn.innerText = name;
   btn.id = id;
 
   document.querySelector('.buttons-container').appendChild(btn);
+
+  btn.addEventListener('click', func);
 }
 
-addBtn('Feriados', 'btn-holiday');
+addBtn('Feriados', 'btn-holiday', highlightHolidays);
+
+let needToReset = false;
+
+function highlightHolidays() {
+  for (const day of days) {
+    if (needToReset) {
+      day.resetHighlight();
+      needToReset = false;
+    }
+    if (day.classes.includes('holiday')) {
+      day.highlightSelf();
+    }
+  }
+
+  needToReset = true;
+}
