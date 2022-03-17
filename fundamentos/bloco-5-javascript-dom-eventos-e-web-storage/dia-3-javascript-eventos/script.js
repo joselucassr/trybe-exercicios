@@ -140,3 +140,14 @@ function createTask(taskName) {
 }
 
 createTask('cozinhar');
+
+function createLabel(color) {
+  let label = document.createElement('div');
+  label.style.backgroundColor = color;
+  label.classList = 'task';
+
+  let parent = document.querySelector('.my-tasks');
+  parent.appendChild(label);
+}
+
+createLabel('#036B52');
