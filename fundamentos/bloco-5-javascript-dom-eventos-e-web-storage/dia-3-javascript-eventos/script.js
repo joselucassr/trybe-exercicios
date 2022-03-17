@@ -22,6 +22,7 @@ function createDaysOfTheWeek() {
 createDaysOfTheWeek();
 
 // Escreva seu código abaixo.
+let selectionColor = '#036B52';
 
 class Day {
   constructor(dayNum) {
@@ -29,7 +30,7 @@ class Day {
     this.liElement = this.buildElement();
     this.classes = [];
     this.isHighlighted = false;
-
+    this.isSelected = false;
     this.watcher();
   }
 
@@ -70,7 +71,20 @@ class Day {
     });
 
     this.liElement.addEventListener('mouseleave', () => {
-      this.liElement.style = '';
+      if (!this.isSelected) {
+        this.liElement.style.color = 'rgb(119, 119, 119)';
+      }
+      this.liElement.style.fontSize = '1rem';
+    });
+
+    this.liElement.addEventListener('click', () => {
+      if (!this.isSelected) {
+        this.liElement.style.color = selectionColor;
+        this.isSelected = true;
+      } else {
+        this.liElement.style.color = 'rgb(119, 119, 119)';
+        this.isSelected = false;
+      }
     });
   }
 }
@@ -152,7 +166,7 @@ function createLabel(color) {
   return label;
 }
 
-let label = createLabel('#036B52');
+let label = createLabel(selectionColor);
 
 label.addEventListener('click', selectLabel);
 
