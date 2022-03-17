@@ -45,8 +45,8 @@ class Day {
     this.classes.push(className);
   }
 
-  highlightSelf(always) {
-    if (!this.isHighlighted || always) {
+  highlightSelf() {
+    if (!this.isHighlighted) {
       this.liElement.style = 'background-color: #8effef;';
       this.isHighlighted = true;
     } else {
@@ -55,10 +55,11 @@ class Day {
     }
   }
 
-  resetHighlight() {
-    if (this.isHighlighted) {
-      this.liElement.style = '';
-      this.isHighlighted = false;
+  changeDisplayText() {
+    if (this.liElement.innerText == this.dayNum) {
+      this.liElement.innerText = 'É SEXTA o/';
+    } else {
+      this.liElement.innerText = this.dayNum;
     }
   }
 
@@ -112,38 +113,30 @@ function addBtn(name, id, func) {
 
 addBtn('Feriados', 'btn-holiday', highlightHolidays);
 
-let btnIsPressed = [false, false];
-
 function highlightHolidays() {
-  btnIsPressed[0] = !btnIsPressed[0];
   for (const day of days) {
-    if (day.classes.includes('holiday') && !day.classes.includes('friday')) {
+    if (day.classes.includes('holiday')) {
       day.highlightSelf();
-    }
-
-    if (day.classes.includes('holiday') && day.classes.includes('friday')) {
-      day.highlightSelf(true);
-      if (!btnIsPressed[0] && !btnIsPressed[1]) {
-        day.resetHighlight();
-      }
     }
   }
 }
 
-addBtn('Sexta-feira', 'btn-friday', highlightFridays);
+addBtn('Sexta-feira', 'btn-friday', changeFridays);
 
-function highlightFridays() {
-  btnIsPressed[1] = !btnIsPressed[1];
+function changeFridays() {
   for (const day of days) {
-    if (day.classes.includes('friday') && !day.classes.includes('holiday')) {
-      day.highlightSelf();
-    }
-
-    if (day.classes.includes('holiday') && day.classes.includes('friday')) {
-      day.highlightSelf(true);
-      if (!btnIsPressed[0] && !btnIsPressed[1]) {
-        day.resetHighlight();
-      }
+    if (day.classes.includes('friday')) {
+      day.changeDisplayText();
     }
   }
 }
+
+function createTask(taskName) {
+  let task = document.createElement('span');
+  task.innerText = taskName;
+
+  let parent = document.querySelector('.my-tasks');
+  parent.appendChild(task);
+}
+
+createTask('cozinhar');
