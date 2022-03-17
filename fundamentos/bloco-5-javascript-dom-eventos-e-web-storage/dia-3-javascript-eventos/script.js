@@ -29,6 +29,8 @@ class Day {
     this.liElement = this.buildElement();
     this.classes = [];
     this.isHighlighted = false;
+
+    this.watcher();
   }
 
   buildElement() {
@@ -58,6 +60,17 @@ class Day {
       this.liElement.style = '';
       this.isHighlighted = false;
     }
+  }
+
+  watcher() {
+    this.liElement.addEventListener('mouseenter', () => {
+      this.liElement.style =
+        'color: #036B52; font-size: 1.5rem; cursor: pointer';
+    });
+
+    this.liElement.addEventListener('mouseleave', () => {
+      this.liElement.style = '';
+    });
   }
 }
 
