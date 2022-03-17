@@ -148,6 +148,14 @@ function createLabel(color) {
 
   let parent = document.querySelector('.my-tasks');
   parent.appendChild(label);
+
+  return label;
 }
 
-createLabel('#036B52');
+let label = createLabel('#036B52');
+
+label.addEventListener('click', selectLabel);
+
+function selectLabel() {
+  label.classList.toggle('selected');
+}
