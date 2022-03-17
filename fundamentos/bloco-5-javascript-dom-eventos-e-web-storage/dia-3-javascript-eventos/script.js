@@ -43,8 +43,8 @@ class Day {
     this.classes.push(className);
   }
 
-  highlightSelf() {
-    if (!this.isHighlighted) {
+  highlightSelf(always) {
+    if (!this.isHighlighted || always) {
       this.liElement.style = 'background-color: #8effef;';
       this.isHighlighted = true;
     } else {
@@ -54,8 +54,10 @@ class Day {
   }
 
   resetHighlight() {
-    this.liElement.style = '';
-    this.isHighlighted = false;
+    if (this.isHighlighted) {
+      this.liElement.style = '';
+      this.isHighlighted = false;
+    }
   }
 }
 
@@ -97,18 +99,38 @@ function addBtn(name, id, func) {
 
 addBtn('Feriados', 'btn-holiday', highlightHolidays);
 
-let needToReset = false;
+let btnIsPressed = [false, false];
 
 function highlightHolidays() {
+  btnIsPressed[0] = !btnIsPressed[0];
   for (const day of days) {
-    if (needToReset) {
-      day.resetHighlight();
-      needToReset = false;
-    }
-    if (day.classes.includes('holiday')) {
+    if (day.classes.includes('holiday') && !day.classes.includes('friday')) {
       day.highlightSelf();
     }
-  }
 
-  needToReset = true;
+    if (day.classes.includes('holiday') && day.classes.includes('friday')) {
+      day.highlightSelf(true);
+      if (!btnIsPressed[0] && !btnIsPressed[1]) {
+        day.resetHighlight();
+      }
+    }
+  }
+}
+
+addBtn('Sexta-feira', 'btn-friday', highlightFridays);
+
+function highlightFridays() {
+  btnIsPressed[1] = !btnIsPressed[1];
+  for (const day of days) {
+    if (day.classes.includes('friday') && !day.classes.includes('holiday')) {
+      day.highlightSelf();
+    }
+
+    if (day.classes.includes('holiday') && day.classes.includes('friday')) {
+      day.highlightSelf(true);
+      if (!btnIsPressed[0] && !btnIsPressed[1]) {
+        day.resetHighlight();
+      }
+    }
+  }
 }
