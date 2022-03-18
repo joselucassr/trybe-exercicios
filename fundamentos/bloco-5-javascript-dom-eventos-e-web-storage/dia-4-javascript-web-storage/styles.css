@@ -40,6 +40,7 @@ main {
 h1 {
   /* background-color: #fff; */
   padding: 10px;
+  font-weight: 400;
 }
 
 article {
@@ -51,10 +52,23 @@ article {
 p {
   /* background-color: #fff; */
   padding: 10px;
-  border-bottom: 1px solid #000;
+  /* border-bottom: 1px solid #000; */
+  margin-bottom: 50px;
 }
 
 .highlight {
   /* text-decoration: underline; */
   font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  main {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 95%;
+  }
 }
