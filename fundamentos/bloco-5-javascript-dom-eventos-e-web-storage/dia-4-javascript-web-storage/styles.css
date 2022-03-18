@@ -115,10 +115,6 @@ section {
   cursor: pointer;
 }
 
-.textSize,
-.lineHeight {
-}
-
 select {
   padding: 10px;
   border: none;
