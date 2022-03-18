@@ -18,6 +18,10 @@ html {
   mix-blend-mode: difference;
 }
 
+.hidden {
+  display: none;
+}
+
 canvas {
   position: fixed;
   top: 0;
@@ -35,6 +39,7 @@ main {
   width: 40%;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 100px;
 }
 
 h1 {
@@ -59,6 +64,20 @@ p {
 .highlight {
   /* text-decoration: underline; */
   font-weight: 700;
+}
+
+.settings {
+  padding: 10px;
+  font-weight: 700;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+
+  position: fixed;
+  bottom: 30px;
+  right: 5%;
+
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
