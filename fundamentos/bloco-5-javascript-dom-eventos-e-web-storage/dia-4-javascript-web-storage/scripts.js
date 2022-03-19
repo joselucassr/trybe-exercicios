@@ -35,17 +35,27 @@ invertColorsBtn.addEventListener('click', invertColors);
 let blackOverlay = document.querySelector('#overlay');
 function invertColors() {
   blackOverlay.classList.toggle('hidden');
+  localStorage.isInverted =
+    localStorage.isInverted === 'true' ? 'false' : 'true';
 }
 
 let articleTag = document.querySelector('article');
 
-let baseFontSize = '1.20rem';
-articleTag.style.fontSize = baseFontSize;
-
+let baseTextSize = '1.20rem';
 let baseLineHeight = '1.60rem';
-articleTag.style.lineHeight = baseLineHeight;
-
 let baseFontFamily = 'Montserrat';
+
+if (Storage) {
+  baseFontFamily = localStorage.fontFamily || baseFontFamily;
+  baseTextSize = localStorage.textSize || baseTextSize;
+  baseLineHeight = localStorage.lineHeight || baseLineHeight;
+
+  if (localStorage?.isInverted === 'true') {
+    blackOverlay.classList = '';
+  } else {
+    blackOverlay.classList = 'hidden';
+  }
+}
 
 let smallerTextBtn = document.querySelector('.smallerText');
 let largerTextBtn = document.querySelector('.largerText');
@@ -60,12 +70,17 @@ tallerLineBtn.addEventListener('click', changeArticleStyle);
 fontSelectionInput.addEventListener('change', changeArticleStyle);
 
 let textSizeLabel = document.querySelector('.textSize');
-textSizeLabel.innerText = baseFontSize;
+textSizeLabel.innerText = baseTextSize;
 
 let lineHeightLabel = document.querySelector('.lineHeight');
 lineHeightLabel.innerText = baseLineHeight;
 
-document.querySelector('body').style.fontFamily = baseFontFamily;
+let bodyTag = document.querySelector('body');
+
+articleTag.style.fontSize = baseTextSize;
+articleTag.style.lineHeight = baseLineHeight;
+bodyTag.style.fontFamily = baseFontFamily;
+fontSelectionInput.value = baseFontFamily.replaceAll('"', '');
 
 function changeArticleStyle(event) {
   let targetClass = event.target.classList[0];
@@ -77,7 +92,7 @@ function changeArticleStyle(event) {
   if (targetClass === 'shorterLine') currentLineHeight -= 0.05;
   if (targetClass === 'tallerLine') currentLineHeight += 0.05;
   if (targetClass === 'fontSelection') {
-    document.querySelector('body').style.fontFamily = event.target.value;
+    bodyTag.style.fontFamily = event.target.value;
   }
 
   currentTextSize = currentTextSize.toFixed(2);
@@ -91,4 +106,10 @@ function changeArticleStyle(event) {
 
   articleTag.style.lineHeight = currentLineHeight;
   lineHeightLabel.innerText = currentLineHeight;
+
+  if (Storage) {
+    localStorage.fontFamily = bodyTag.style.fontFamily;
+    localStorage.textSize = currentTextSize;
+    localStorage.lineHeight = currentLineHeight;
+  }
 }
