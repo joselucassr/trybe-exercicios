@@ -18,7 +18,6 @@ function windowResized() {
 
 let settingsBtn = document.querySelector('.settings');
 settingsBtn.addEventListener('click', toggleMenu);
-
 document.querySelector('.go-back').addEventListener('click', toggleMenu);
 
 let main = document.querySelector('main');
@@ -46,21 +45,27 @@ articleTag.style.fontSize = baseFontSize;
 let baseLineHeight = '1.60rem';
 articleTag.style.lineHeight = baseLineHeight;
 
+let baseFontFamily = 'Montserrat';
+
 let smallerTextBtn = document.querySelector('.smallerText');
 let largerTextBtn = document.querySelector('.largerText');
 let shorterLineBtn = document.querySelector('.shorterLine');
 let tallerLineBtn = document.querySelector('.tallerLine');
+let fontSelectionInput = document.querySelector('.fontSelection');
 
 smallerTextBtn.addEventListener('click', changeArticleStyle);
 largerTextBtn.addEventListener('click', changeArticleStyle);
 shorterLineBtn.addEventListener('click', changeArticleStyle);
 tallerLineBtn.addEventListener('click', changeArticleStyle);
+fontSelectionInput.addEventListener('change', changeArticleStyle);
 
 let textSizeLabel = document.querySelector('.textSize');
 textSizeLabel.innerText = baseFontSize;
 
 let lineHeightLabel = document.querySelector('.lineHeight');
 lineHeightLabel.innerText = baseLineHeight;
+
+document.querySelector('body').style.fontFamily = baseFontFamily;
 
 function changeArticleStyle(event) {
   let targetClass = event.target.classList[0];
@@ -71,6 +76,9 @@ function changeArticleStyle(event) {
   if (targetClass === 'largerText') currentTextSize += 0.05;
   if (targetClass === 'shorterLine') currentLineHeight -= 0.05;
   if (targetClass === 'tallerLine') currentLineHeight += 0.05;
+  if (targetClass === 'fontSelection') {
+    document.querySelector('body').style.fontFamily = event.target.value;
+  }
 
   currentTextSize = currentTextSize.toFixed(2);
   currentTextSize = currentTextSize + 'rem';
