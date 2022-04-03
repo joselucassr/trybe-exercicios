@@ -9,4 +9,8 @@ describe('Tests sum function', () => {
   it('Return 0 as the sum of 0 and 0', () => {
     expect(sumEx(0, 0)).toBe(0);
   });
+
+  it('Throws an error when the parameters are 4 and "5"', () => {
+    expect(() => sumEx(4, '5')).toThrow();
+  });
 });
