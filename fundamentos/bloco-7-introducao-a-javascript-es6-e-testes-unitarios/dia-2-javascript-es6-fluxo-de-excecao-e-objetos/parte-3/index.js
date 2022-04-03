@@ -50,3 +50,9 @@ console.log(getValueByNumber(lesson1, 0));
 const verifyPair = (obj, key, value) => obj[key] === value;
 console.log(verifyPair(lesson3, 'turno', 'noite'));
 console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
+
+// Bônus
+const checkMathViewership = (obj) => {
+  return obj.lesson2.numeroEstudantes;
+};
+console.log(checkMathViewership(allValues()));
