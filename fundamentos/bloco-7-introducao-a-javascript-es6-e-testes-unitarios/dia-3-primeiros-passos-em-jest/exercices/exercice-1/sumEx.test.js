@@ -13,4 +13,10 @@ describe('Tests sum function', () => {
   it('Throws an error when the parameters are 4 and "5"', () => {
     expect(() => sumEx(4, '5')).toThrow();
   });
+
+  it('Throws an error with the message "parameters must be numbers" when passing 4 and "5"', () => {
+    expect(() => sumEx(4, '5')).toThrowError(
+      new Error('parameters must be numbers'),
+    );
+  });
 });
