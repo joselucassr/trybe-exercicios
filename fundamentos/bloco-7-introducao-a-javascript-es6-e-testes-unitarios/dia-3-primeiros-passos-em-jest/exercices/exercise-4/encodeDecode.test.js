@@ -25,4 +25,12 @@ describe('Tests the encode and decode functions', () => {
   it('Decode returns "aeioubcd" when passing: "12345bcd"', () => {
     expect(decode('12345bcd')).toBe('aeioubcd');
   });
+
+  it('Encode returns a string of the same lenght as the one passed.', () => {
+    expect(encode('aeioubcd')).toHaveLength(8);
+  });
+
+  it('Decode returns a string of the same lenght as the one passed.', () => {
+    expect(decode('12345bcd')).toHaveLength(8);
+  });
 });
