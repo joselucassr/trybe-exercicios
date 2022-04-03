@@ -21,3 +21,7 @@ const lesson3 = {
 const addAttribute = (obj, key, value) => (obj[key] = value);
 addAttribute(lesson2, 'turno', 'noite');
 console.log(lesson2);
+
+const listKeys = (obj) => Object.keys(obj);
+
+console.log(listKeys(lesson2));
