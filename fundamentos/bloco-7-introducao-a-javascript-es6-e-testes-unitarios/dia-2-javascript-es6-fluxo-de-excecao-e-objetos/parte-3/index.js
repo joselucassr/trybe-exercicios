@@ -30,3 +30,12 @@ console.log(objLength(lesson2));
 
 const listValues = (obj) => Object.values(obj);
 console.log(listValues(lesson2));
+
+const allValues = () => {
+  return {
+    lesson1,
+    lesson2,
+    lesson3,
+  };
+};
+console.log(allValues());
