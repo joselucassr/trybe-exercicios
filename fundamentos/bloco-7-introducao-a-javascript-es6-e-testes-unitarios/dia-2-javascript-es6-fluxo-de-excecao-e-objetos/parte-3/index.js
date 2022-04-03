@@ -17,3 +17,7 @@ const lesson3 = {
   professor: 'Maria Clara',
   turno: 'noite',
 };
+
+const addAttribute = (obj, key, value) => (obj[key] = value);
+addAttribute(lesson2, 'turno', 'noite');
+console.log(lesson2);
