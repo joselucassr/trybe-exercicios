@@ -13,4 +13,8 @@ describe('Tests the encode and decode functions', () => {
   it('Encode returns "12345" when passing: "aeiou"', () => {
     expect(encode('aeiou')).toBe('12345');
   });
+
+  it('Decode returns "aeiou" when passing: "12345"', () => {
+    expect(decode('12345')).toBe('aeiou');
+  });
 });
