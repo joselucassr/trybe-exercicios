@@ -39,3 +39,7 @@ const allValues = () => {
   };
 };
 console.log(allValues());
+
+const countStudents = (obj) =>
+  Object.keys(obj).reduce((acc, curr) => acc + obj[curr].numeroEstudantes, 0);
+console.log(countStudents(allValues()));
