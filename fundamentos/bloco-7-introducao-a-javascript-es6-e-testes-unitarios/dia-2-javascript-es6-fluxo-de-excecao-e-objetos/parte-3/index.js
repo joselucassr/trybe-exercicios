@@ -56,3 +56,24 @@ const checkMathViewership = (obj) => {
   return obj.lesson2.numeroEstudantes;
 };
 console.log(checkMathViewership(allValues()));
+
+const createReport = (obj, teacherName) => {
+  let classes = [];
+  let studentAmt = Object.keys(obj).reduce(
+    (acc, key) =>
+      obj[key].professor === teacherName
+        ? (() => {
+            classes.push(obj[key].materia);
+            return acc + obj[key].numeroEstudantes;
+          })()
+        : acc,
+    0,
+  );
+
+  return {
+    professor: teacherName,
+    aulas: classes,
+    estudantes: studentAmt,
+  };
+};
+console.log(createReport(allValues(), 'Maria Clara'));
