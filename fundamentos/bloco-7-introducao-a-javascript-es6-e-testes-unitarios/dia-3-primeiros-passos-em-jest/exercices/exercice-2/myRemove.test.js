@@ -9,4 +9,8 @@ describe('Tests the myRemove function', () => {
   it('Is not the same array after passing: [1, 2, 3, 4], 3', () => {
     expect(myRemove([1, 2, 3, 4], 3)).not.toEqual([1, 2, 3, 4]);
   });
+
+  it('Is the same array when passing: [1, 2, 3, 4], 5', () => {
+    expect(myRemove([1, 2, 3, 4], 5)).toEqual([1, 2, 3, 4]);
+  });
 });
