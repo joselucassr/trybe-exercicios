@@ -17,4 +17,8 @@ describe('Tests the function myFizzBuzz', () => {
   it('Returns 4 when passing 4.', () => {
     expect(myFizzBuzz(4)).toBe(4);
   });
+
+  it('Returns false when passing a.', () => {
+    expect(myFizzBuzz('a')).toBe(false);
+  });
 });
